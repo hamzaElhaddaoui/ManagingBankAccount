@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @Slf4j
-@RequestMapping("api/bank/")
+@RequestMapping(path="/api/bank")
 public class BankController {
 
-    @GetMapping("/create/account")
+    @PostMapping("")
     public ResponseEntity createAccount(){
         BankController.log.debug("Entering the add account method");
 
