@@ -7,10 +7,10 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class ClientDTO {
+public class AccountDTO {
 
     private Long id;
-    private String firstName;
-    private String lastName;
+    private int balance;
+    private String name;
 
 }

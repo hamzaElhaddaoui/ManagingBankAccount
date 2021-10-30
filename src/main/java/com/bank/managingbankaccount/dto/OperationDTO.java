@@ -7,10 +7,8 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class ClientDTO {
-
+public class OperationDTO {
     private Long id;
-    private String firstName;
-    private String lastName;
-
+    private int amount;
+    private String operationType;
 }

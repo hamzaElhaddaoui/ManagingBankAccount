@@ -3,6 +3,7 @@ package com.bank.managingbankaccount.domain;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Table(name = "client")
 @Entity
@@ -23,5 +24,8 @@ public class Client {
 
     @Column(name = "last_name")
     private String lastName;
+
+    @OneToMany(mappedBy = "client", orphanRemoval = true)
+    private List<Account> accounts;
 
 }

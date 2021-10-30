@@ -7,10 +7,11 @@ import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.runner.RunWith;
 import org.mapstruct.factory.Mappers;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-@RunWith(MockitoJUnitRunner.class)
+@RunWith(SpringJUnit4ClassRunner.class)
 public class ClientMapperTest {
+
     private ClientMapper mapper = Mappers.getMapper(ClientMapper.class);
 
     @Test
@@ -29,5 +30,12 @@ public class ClientMapperTest {
     @Test
     public void testDomainToDto(){
 
+        Client client = Client.builder().id(5L).firstName("Hamza").lastName("EL HADDAOUI").build();
+
+        ClientDTO clientDTO = mapper.getDTO(client);
+
+        Assertions.assertEquals(client.getId(), clientDTO.getId());
+        Assertions.assertEquals(client.getFirstName(), clientDTO.getFirstName());
+        Assertions.assertEquals(client.getLastName(), clientDTO.getLastName());
     }
 }

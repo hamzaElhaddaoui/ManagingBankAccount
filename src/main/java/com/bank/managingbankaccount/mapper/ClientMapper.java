@@ -7,8 +7,6 @@ import org.mapstruct.factory.Mappers;
 
 @Mapper
 public interface ClientMapper {
-    ClientMapper instance = Mappers.getMapper(ClientMapper.class);
-
     Client getEntity(ClientDTO clientDTO);
     ClientDTO getDTO(Client client);
 }
