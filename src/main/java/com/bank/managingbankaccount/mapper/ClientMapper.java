@@ -5,7 +5,7 @@ import com.bank.managingbankaccount.dto.ClientDTO;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface ClientMapper {
     Client getEntity(ClientDTO clientDTO);
     ClientDTO getDTO(Client client);

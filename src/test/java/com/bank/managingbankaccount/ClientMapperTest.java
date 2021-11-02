@@ -17,11 +17,10 @@ public class ClientMapperTest {
     @Test
     public void testDtoToDomain(){
 
-        ClientDTO clientDTO = ClientDTO.builder().id(5L).firstName("Hamza").lastName("EL HADDAOUI").build();
+        ClientDTO clientDTO = ClientDTO.builder().firstName("Hamza").lastName("EL HADDAOUI").build();
 
         Client client = mapper.getEntity(clientDTO);
 
-        Assertions.assertEquals(client.getId(),clientDTO.getId());
         Assertions.assertEquals(client.getFirstName(),clientDTO.getFirstName());
         Assertions.assertEquals(client.getLastName(),clientDTO.getLastName());
 
@@ -34,7 +33,6 @@ public class ClientMapperTest {
 
         ClientDTO clientDTO = mapper.getDTO(client);
 
-        Assertions.assertEquals(client.getId(), clientDTO.getId());
         Assertions.assertEquals(client.getFirstName(), clientDTO.getFirstName());
         Assertions.assertEquals(client.getLastName(), clientDTO.getLastName());
     }

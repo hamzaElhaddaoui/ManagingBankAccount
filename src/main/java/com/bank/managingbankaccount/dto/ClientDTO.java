@@ -2,6 +2,8 @@ package com.bank.managingbankaccount.dto;
 
 import lombok.*;
 
+import javax.validation.constraints.NotNull;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -9,8 +11,10 @@ import lombok.*;
 @Builder
 public class ClientDTO {
 
-    private Long id;
+    @NotNull
     private String firstName;
+
+    @NotNull
     private String lastName;
 
 }

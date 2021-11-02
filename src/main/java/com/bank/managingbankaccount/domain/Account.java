@@ -3,6 +3,8 @@ package com.bank.managingbankaccount.domain;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Table(name = "account")
@@ -25,10 +27,10 @@ public class Account {
     @Column(name = "balance")
     private int balance;
 
-    @OneToMany(mappedBy = "account", orphanRemoval = true)
+    @OneToMany(mappedBy = "account", cascade = {CascadeType.ALL})
     private List<Operation> operations;
 
-    @ManyToOne
+    @ManyToOne()
     @JoinColumn(name = "client_id")
     private Client client;
 
