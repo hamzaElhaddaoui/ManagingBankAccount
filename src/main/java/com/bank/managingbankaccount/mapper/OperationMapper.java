@@ -4,10 +4,12 @@ import com.bank.managingbankaccount.domain.Operation;
 import com.bank.managingbankaccount.dto.OperationDTO;
 import org.mapstruct.Mapper;
 
-@Mapper
+import java.util.List;
+
+@Mapper(componentModel = "spring")
 public interface OperationMapper {
 
-    Operation toEntity(OperationDTO operationDTO);
     OperationDTO toDTO(Operation operation);
+    List<OperationDTO> toDTOs(List<Operation> operations);
 
 }

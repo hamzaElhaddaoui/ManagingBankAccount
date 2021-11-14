@@ -30,11 +30,10 @@ public class Operation {
     @Column(name = "amount")
     private int amount;
 
-    @CreatedDate
-    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "date")
     private Date date;
 
+    @ToString.Exclude
     @ManyToOne
     @JoinColumn(name = "account_id")
     private Account account;

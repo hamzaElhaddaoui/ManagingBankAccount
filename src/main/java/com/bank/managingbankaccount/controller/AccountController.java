@@ -2,6 +2,7 @@ package com.bank.managingbankaccount.controller;
 
 import com.bank.managingbankaccount.domain.Account;
 import com.bank.managingbankaccount.dto.AccountDTO;
+import com.bank.managingbankaccount.dto.HistoryDTO;
 import com.bank.managingbankaccount.mapper.AccountMapper;
 import com.bank.managingbankaccount.service.AccountService;
 import io.swagger.annotations.ApiOperation;
@@ -47,19 +48,50 @@ public class AccountController {
     }
 
 
+    /**
+     * withdraw an amount of money from a specified account
+     * @param accountName the account name
+     * @param amount the amount to withdraw
+     * @return response entity of operation
+     */
     @PutMapping("/{accountName}/withdraw")
+    @ApiOperation(value = "Withdraw money from account")
     public ResponseEntity<AccountDTO> withdrawMoney(@PathVariable String accountName, @RequestParam int amount){
+        AccountController.log.debug("Entering in withdraw method");
         Account account = accountService.withdrawMoney(accountName, amount);
         AccountDTO accountDTO = accountMapper.toDTO(account);
+        AccountController.log.debug("Exiting from withdraw method");
         return ResponseEntity.ok(accountDTO);
     }
 
+    /**
+     * Deposit an amount of money in the specified account
+     * @param accountName the name of the account
+     * @param amount the deposit amount
+     * @return
+     */
     @PutMapping("/{accountName}/deposit")
+    @ApiOperation(value = "Deposit money in account")
     public ResponseEntity<AccountDTO> depositMoney(@PathVariable String accountName, @RequestParam int amount){
+        AccountController.log.debug("Entering in the depositMoney method");
         Account account = accountService.depositMoney(accountName, amount);
         AccountDTO accountDTO = accountMapper.toDTO(account);
+        AccountController.log.debug("Exiting from the depositMoney method");
         return ResponseEntity.ok(accountDTO);
     }
 
+    /**
+     * Fetch account transaction history
+     * @param accountName account name
+     * @param page number of page
+     * @param size size of the page
+     * @return history
+     */
+    @GetMapping("/{accountName}/history")
+    @ApiOperation(value = "Get operations history of an account")
+    public ResponseEntity<HistoryDTO> operationsHistory(@PathVariable String accountName, @RequestParam int page, @RequestParam int size){
 
+        HistoryDTO historyDTO = accountService.getAccountHistory(accountName, page, size);
+        return ResponseEntity.ok(historyDTO);
+    }
 }

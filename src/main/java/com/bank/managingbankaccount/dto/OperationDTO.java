@@ -2,13 +2,15 @@ package com.bank.managingbankaccount.dto;
 
 import lombok.*;
 
+import java.util.Date;
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 public class OperationDTO {
-    private Long id;
     private int amount;
     private String operationType;
+    private Date date;
 }

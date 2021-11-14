@@ -9,6 +9,7 @@ import org.mapstruct.Mapping;
 import org.mapstruct.Named;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Mapper(componentModel = "spring",
@@ -31,7 +32,7 @@ public interface AccountMapper {
     @Named("getOperations")
     default List<Operation> from(int amount){
         List<Operation> list = new ArrayList<>();
-        list.add(Operation.builder().amount(amount).operationType(OperationType.DIPOSITE).build());
+        list.add(Operation.builder().amount(amount).operationType(OperationType.DIPOSITE).date(new Date()).build());
         return list;
     }
 
