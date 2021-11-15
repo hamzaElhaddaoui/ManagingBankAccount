@@ -1,4 +1,4 @@
-package com.bank.managingbankaccount;
+package mapper;
 
 import com.bank.managingbankaccount.domain.Operation;
 import com.bank.managingbankaccount.domain.OperationType;

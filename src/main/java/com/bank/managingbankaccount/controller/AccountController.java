@@ -94,4 +94,5 @@ public class AccountController {
         HistoryDTO historyDTO = accountService.getAccountHistory(accountName, page, size);
         return ResponseEntity.ok(historyDTO);
     }
+
 }

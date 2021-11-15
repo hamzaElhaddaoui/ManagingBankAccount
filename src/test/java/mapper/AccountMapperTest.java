@@ -1,4 +1,4 @@
-package com.bank.managingbankaccount;
+package mapper;
 
 import com.bank.managingbankaccount.domain.Account;
 import com.bank.managingbankaccount.domain.Client;
